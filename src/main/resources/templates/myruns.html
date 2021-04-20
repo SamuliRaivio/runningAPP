@@ -1,0 +1,42 @@
+<! DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"> 
+<head>
+	<title>My Runs</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+</head>
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<body>
+	
+		<form th:action="@{/logout}" method="post" align="right">
+				<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+		
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	
+		<h1>Books</h1>
+		
+		
+		<table class="table table-striped">
+		
+			<tr>
+				<th>User</th>
+				<th>Distance</th>
+				<th>Time in minutes</th>
+			</tr>
+			
+			<tr th:each = "run : ${run}">
+				<td th:text="${run.user.username}"></td>
+				<td th:text="${run.distance}"></td>
+				<td th:text="${run.timeInMinutes}"></td>
+			</tr>
+			
+		</table>
+		
+		
+		
+			
+		
+	
+	</body>
+</html>
